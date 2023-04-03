@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:57:27 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/02 20:03:55 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:33:25 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,11 @@ void	split_command(t_sys_config *data);
 void	exec_stdin(t_sys_config *data);
 void	split_paths(t_sys_config *data);
 void	free_struct(t_sys_config *data);
+
+// check
+
+void	exit_check(t_sys_config *data);
+void	args_checks(int argc);
+void	signal_ctrl_d(char *data);
 
 #endif

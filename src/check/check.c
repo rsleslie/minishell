@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_parse.c                                     :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 16:37:17 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/02 19:03:17 by rleslie-         ###   ########.fr       */
+/*   Created: 2023/04/03 11:27:44 by rleslie-          #+#    #+#             */
+/*   Updated: 2023/04/03 11:33:39 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+# include "../../minishell.h"
 
-void	split_command(t_sys_config *data)
-{  
-	data->str_command = ft_split(data->str, 32);
-	// exec_stdin(data);
+void	exit_check(t_sys_config *data)
+{
+	if (ft_strncmp(data->str, "exit", ft_strlen(data->str) - 1) == 0)
+	{
+		printf("Bye!\n");
+		exit(0);
+	}
 }
 
+void	args_checks(int argc)
+{
+	if (argc != 1)
+	{
+		printf("Invalid number of arguments!\n");
+		exit(0);
+	}
+}
+
+void	signal_ctrl_d(char *data)
+{
+	if (data == NULL)
+	{
+		printf("Bye!\n");
+		exit(0);
+	}
+}

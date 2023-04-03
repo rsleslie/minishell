@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_envp.c                                      :+:      :+:    :+:   */
+/*   handle_paths.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 01:27:21 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/02 18:22:32 by rleslie-         ###   ########.fr       */
+/*   Created: 2023/04/02 18:03:16 by rleslie-          #+#    #+#             */
+/*   Updated: 2023/04/03 11:36:04 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+# include "../../minishell.h"
 
-void	get_envp(t_sys_config *data, char **envp)
+void	split_paths(t_sys_config *data)
 {
 	int	i;
-
+	
 	i = 0;
-	data->env = (char **)malloc(sizeof(char *) * strlen_vars(envp) + 1);
-	while (envp[i])
-	{
-		data->env[i] = ft_strdup(envp[i]);
+	while (ft_strncmp("PATH", data->env[i], 4))
 		i++;
-	}
-	split_paths(data);
+	data->paths = ft_split((data->env[i] + 5), ':');
 }
-
-

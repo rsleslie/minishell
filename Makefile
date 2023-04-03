@@ -6,12 +6,13 @@
 #    By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 00:41:45 by rleslie-          #+#    #+#              #
-#    Updated: 2023/04/02 18:08:57 by rleslie-         ###   ########.fr        #
+#    Updated: 2023/04/03 11:36:59 by rleslie-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= minishell
-SRC= minishell.c ./src/minishell_utils.c ./src/handle_envp.c ./src/handle_parse.c ./src/handle_exec.c ./src/handle_paths.c
+SRC= minishell.c ./src/minishell_utils.c ./src/handle/handle_envp.c ./src/handle/handle_parse.c \
+	./src/handle/handle_exec.c ./src/handle/handle_paths.c ./src/check/check.c
 OBJ= $(.c=.o)
 CC= cc
 RL= -lreadline

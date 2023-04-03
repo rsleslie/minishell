@@ -6,11 +6,11 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:10:54 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/02 18:29:55 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:35:51 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 void	exec_stdin(t_sys_config *data)
 {
