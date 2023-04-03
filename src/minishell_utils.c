@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 01:18:07 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/02 18:00:02 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/03 15:26:20 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,15 @@ int	strlen_vars(char **envp)
 		len++;
 	}
 	return (len);
+}
+
+int	keylen(char *str)
+{
+	int		i;
+	char	**split_str;
+
+	split_str = ft_split(str, '=');
+	i = ft_strlen(split_str[0]);
+	free(split_str);
+	return (i);
 }

@@ -6,16 +6,16 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:03:16 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/03 11:36:04 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:57:05 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../minishell.h"
+#include "../../minishell.h"
 
 void	split_paths(t_sys_config *data)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_strncmp("PATH", data->env[i], 4))
 		i++;

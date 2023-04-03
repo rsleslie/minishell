@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 11:27:44 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/03 11:57:30 by rleslie-         ###   ########.fr       */
+/*   Created: 2023/04/03 15:51:41 by rleslie-          #+#    #+#             */
+/*   Updated: 2023/04/03 19:27:01 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	exit_check(t_sys_config *data)
+t_node	*node_list(char *data)
 {
-	if (ft_strncmp(data->str, "exit", ft_strlen(data->str) - 1) == 0)
-	{
-		printf("Bye!\n");
-		exit(0);
-	}
+	t_node *aux;
+	
+	aux = malloc(sizeof(t_node));
+	aux->str = ft_strdup(data);
+	aux->next = NULL;
+	return (aux);
 }
 
-void	args_checks(int argc)
+t_node *node_last(t_node *list)
 {
-	if (argc != 1)
-	{
-		printf("Invalid number of arguments!\n");
-		exit(0);
-	}
+	t_node *aux;
+
+	aux = list;
+	while (aux->next != NULL)
+		aux = aux->next;
+	return (aux);		
 }
 
-void	signal_ctrl_d(char *data)
+void	link_node_end(t_node **data, t_node *node)
 {
-	if (data == NULL)
+	t_node *aux;
+	if(data == NULL)
+		return;
+	if (*data == NULL)
 	{
-		printf("Bye!\n");
-		exit(0);
+		*data = node;
+		return;
 	}
-}
+	aux = node_last(*data);
+	aux->next = node;
+}	
