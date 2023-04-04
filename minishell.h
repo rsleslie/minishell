@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:57:27 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/03 19:25:18 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:16:11 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,26 @@ typedef struct s_sys_config
 {
 	char	*str;
 	char	**str_command;
-	char	**env;
+	char	**envp;
 	char	**paths;
 }	t_sys_config;
 
 typedef struct s_node
 {
-	char	*str;
+	char	*variable;
+	char	*value;
 	struct s_node *next;
 }	t_node;
-
-// typedef struct s_linked_list
-// {
-	
-// 	struct s_linked_list *next;
-// }	t_linked_list;
 
 //utils
 int		strlen_vars(char **envp);
 int		keylen(char *str);
 
 //handle_envp
-void	get_envp(t_sys_config *data, char **envp);
-int		search_envp(char *key, t_sys_config *data);
-char	*get_value_env(t_sys_config *data, int i);
+void	get_envp(t_node **env, char **envp);
+int		search_env(char *data, char *key);
+void	add_env(t_node **list, char *key);
+void	remove_env(t_node **list, char *key);
 
 // handle_exec .. executar comandos
 void	exec_stdin(t_sys_config *data);

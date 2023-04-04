@@ -6,14 +6,9 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:37:17 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/03 12:09:08 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:17:52 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-
-void	split_command(t_sys_config *data)
-{
-	data->str_command = ft_split(data->str, 32);
-}
 

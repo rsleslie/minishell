@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:32:48 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/03 19:23:28 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:21:04 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 int	main(int argc, char **argv, char **envp)
 {
 	t_sys_config	data;
+	t_node			*env;
 	int				i;
 	
 	i = 0;
+	env = NULL;
 	(void)argv;
 	args_checks(argc);
-	get_envp(&data, envp);
+	get_envp(&env, envp);
 	while (1)
 	{
 		data.str = readline("MiniShell> ");
-		signal_ctrl_d(data.str);
+		// signal_ctrl_d(data.str);
 		add_history(data.str);
-		// i = search_envp(data.str + 6, &data);
-		// printf("%s\n", get_value_env(&data, i));
 		exit_check(&data);
-		split_command(&data);
 	}
 	return (0);
 }
