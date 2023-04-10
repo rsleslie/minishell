@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:57:27 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/04 15:16:11 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/10 11:40:42 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ int		keylen(char *str);
 //handle_envp
 void	get_envp(t_node **env, char **envp);
 int		search_env(char *data, char *key);
-void	add_env(t_node **list, char *key);
-void	remove_env(t_node **list, char *key);
+
+//built-ins
+void	ft_export(t_node **list, char *key);
+void	ft_unset(t_node **list, char *key);
 
 // handle_exec .. executar comandos
 void	exec_stdin(t_sys_config *data);
@@ -68,6 +70,10 @@ void	signal_ctrl_d(char *data);
 // creat_list
 void	link_node_end(t_node **data, t_node *node);
 t_node	*node_last(t_node *list);
-t_node	*node_list(char *data);
+t_node	*creat_node(char *data);
+
+//free
+void	ft_free_list(t_node *list);
+void	ft_free_node(t_node *data);
 
 #endif

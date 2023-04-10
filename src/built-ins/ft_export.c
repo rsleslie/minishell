@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_envp.c                                      :+:      :+:    :+:   */
+/*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 01:27:21 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/10 11:27:11 by rleslie-         ###   ########.fr       */
+/*   Created: 2023/04/10 11:08:51 by rleslie-          #+#    #+#             */
+/*   Updated: 2023/04/10 13:00:15 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	search_env(char *data, char *key)
+void	ft_export(t_node **list, char *key)
 {
-	int	len_data;
-	int	len_key;
-
-	len_data = ft_strlen(data);
-	len_key = ft_strlen(key);
-	if (len_data == len_key)
-	{
-		if (ft_strncmp(data, key,len_data) == 0)
-			return (0);
-	}	
-	return (1);
-}
-
-void	get_envp(t_node **env, char **envp)
-{
+	t_node	*current;
+	t_node	*temp;
 	int		i;
-	
-	i = 0;
-	while (envp[i])
-	{
-		link_node_end(env, creat_node(envp[i]));
-		i++;
-	}
-}
 
+	i = 0;
+	temp = creat_node(key);
+	current = (*list);
+	while (current != NULL)
+	{
+		if (search_env(temp->variable, current->variable) == 0)
+		{
+			i = 1;
+			free(current->value);
+			current->value = ft_strdup(temp->value);
+			ft_free_node(temp);
+			return;
+		}
+		current = current->next;
+	}
+	if (i == 0)
+		link_node_end(list,creat_node(key));
+	ft_free_node(temp);
+}

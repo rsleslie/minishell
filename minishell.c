@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:32:48 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/04 15:21:04 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/10 11:24:54 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char **argv, char **envp)
 	while (1)
 	{
 		data.str = readline("MiniShell> ");
-		// signal_ctrl_d(data.str);
 		add_history(data.str);
 		exit_check(&data);
 	}

@@ -6,7 +6,7 @@
 #    By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 00:41:45 by rleslie-          #+#    #+#              #
-#    Updated: 2023/04/04 15:41:29 by rleslie-         ###   ########.fr        #
+#    Updated: 2023/04/10 11:23:56 by rleslie-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ SRC= minishell.c    				\
 	./src/handle/handle_exec.c 		\
 	./src/handle/handle_paths.c 	\
 	./src/check/check.c 			\
-	./src/creat_list/linked_list.c
+	./src/creat_list/linked_list.c 	\
+	./src/built-ins/ft_unset.c 		\
+	./src/built-ins/ft_export.c 	\
+	./src/free/ft_free_list.c
 OBJ= $(.c=.o)
 CC= cc
 RL= -lreadline

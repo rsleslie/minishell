@@ -6,23 +6,25 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:51:41 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/04 14:50:52 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/04/10 12:38:20 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-t_node	*node_list(char *list)
+t_node	*creat_node(char *data)
 {
 	t_node	*aux;
-	char	**split_list;
+	char	**split_data;
 
-	split_list = ft_split(list, '=');
+	split_data = ft_split(data, '=');
 	aux = malloc(sizeof(t_node));
-	aux->variable = ft_strdup(split_list[0]);
-	aux->value = ft_strdup(split_list[1]);
+	aux->variable = ft_strdup(split_data[0]);
+	aux->value = ft_strdup(split_data[1]);
 	aux->next = NULL;
-	free(split_list);
+	free(split_data[0]);
+	free(split_data[1]);
+	free(split_data);
 	return (aux);
 }
 
@@ -50,47 +52,3 @@ void	link_node_end(t_node **list, t_node *node)
 	aux = node_last(*list);
 	aux->next = node;
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	t_node	*aux;
-// 	t_node	*env = NULL;
-// 	int		i = 1;
-
-// 	while (argv[i])
-// 	{
-// 		link_node_end(&env, node_list(argv[i]));
-// 		i++;
-// 	}
-// 	aux = env;
-// 	while (aux)
-// 	{
-// 		printf("%s === %s\n", aux->variable, aux->value);
-// 		aux = aux->next;
-// 	}
-// 	printf("\n");
-// 	add_env(&env,"PATH_nova=trocou");
-// 	aux = env;
-// 	while (aux)
-// 	{
-// 		printf("%s === %s\n", aux->variable, aux->value);
-// 		aux = aux->next;
-// 	}
-	
-// 	//----------------------
-// 	printf("\n remove \n\n");
-// 	aux = env;
-// 	while (aux)
-// 	{
-// 		printf("%s === %s\n", aux->variable, aux->value);
-// 		aux = aux->next;
-// 	}
-// 	printf("\n");
-// 	remove_env(&env,"PATH_KEY");
-// 	aux = env;
-// 	while (aux)
-// 	{
-// 		printf("%s === %s\n", aux->variable, aux->value);
-// 		aux = aux->next;
-// 	}
-// }

@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_envp.c                                      :+:      :+:    :+:   */
+/*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 01:27:21 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/04/10 11:27:11 by rleslie-         ###   ########.fr       */
+/*   Created: 2023/04/06 15:21:37 by rleslie-          #+#    #+#             */
+/*   Updated: 2023/04/10 13:21:11 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	search_env(char *data, char *key)
+void	ft_unset(t_node **list, char *key)
 {
-	int	len_data;
-	int	len_key;
+	t_node		*current;
+	t_node		*temp;
 
-	len_data = ft_strlen(data);
-	len_key = ft_strlen(key);
-	if (len_data == len_key)
+	temp = NULL;
+	current = (*list);
+	while (current != NULL)
 	{
-		if (ft_strncmp(data, key,len_data) == 0)
-			return (0);
+		if (search_env(current->variable, key) == 0)
+		{
+			if (temp == NULL)
+				(*list) = (*list)->next;
+			else
+				temp->next = current->next;
+			ft_free_node(current);
+			return ;
+		}
+		temp = current;
+		current = current->next;
 	}	
-	return (1);
 }
-
-void	get_envp(t_node **env, char **envp)
-{
-	int		i;
-	
-	i = 0;
-	while (envp[i])
-	{
-		link_node_end(env, creat_node(envp[i]));
-		i++;
-	}
-}
-
