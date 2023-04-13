@@ -6,59 +6,60 @@ int	main(int argc, char **argv)
 	t_node	*env = NULL;
 	int		i = 1;
 
-	argc = 0;
-	while (argv[i])
-	{
-		link_node_end(&env, creat_node(argv[i]));
-		i++;
-	}
-	aux = env;
-	printf("\n------------------------------------------------\n");
-	printf("\nValor de entrada env\n");
-	while (aux)
-	{
-		printf("%s === %s\n", aux->variable, aux->value);
-		aux = aux->next;
-	}
-	printf("\n------------------------------------------------\n");
-	printf("ADD um valor em uma variavel que exite > PATH=trocou\n");
-	ft_export(&env,"PATH=trocou");
-	aux = env;
-	while (aux)
-	{
-		printf("%s === %s\n", aux->variable, aux->value);
-		aux = aux->next;
-	}
-	printf("\n------------------------------------------------\n");
-	printf("\nADD uma variavel que NÂO exite > PATH_nova=value\n");
-	ft_export(&env,"PATH_nova=value");
-	aux = env;
-	while (aux)
-	{
-		printf("%s === %s\n", aux->variable, aux->value);
-		aux = aux->next;
-	}
+	// link_node_end(&env, creat_node("USER=rleslie-"));
+	// link_node_end(&env, creat_node("LANGUAGE=en"));
+	// link_node_end(&env, creat_node("HOME=/nfs/homes/rleslie-"));
+	// link_node_end(&env, creat_node("DESKTOP_SESSION=ubuntu"));
+	// link_node_end(&env, creat_node("LANG=en_US.UTF-8"));
+	// link_node_end(&env, creat_node("NO_AT_BRIDGE=1"));
+
+	// aux = env;
+	// printf("\n------------------------------------------------\n");
+	// printf("\nValor de entrada env\n");
+	// while (aux)
+	// {
+	// 	printf("%s === %s\n", aux->variable, aux->value);
+	// 	aux = aux->next;
+	// }
+	// printf("\n------------------------------------------------\n");
+	// printf("ADD um valor em uma variavel que exite > PATH=trocou\n");
+	// ft_export(&env,"PATH=trocou");
+	// aux = env;
+	// while (aux)
+	// {
+	// 	printf("%s === %s\n", aux->variable, aux->value);
+	// 	aux = aux->next;
+	// }
+	// printf("\n------------------------------------------------\n");
+	// printf("\nADD uma variavel que NÂO exite > PATH_nova=value\n");
+	// ft_export(&env,"PATH_nova=value");
+	// aux = env;
+	// while (aux)
+	// {
+	// 	printf("%s === %s\n", aux->variable, aux->value);
+	// 	aux = aux->next;
+	// }
 	
-	printf("\n------------------------------------------------\n");
-	printf("\nRemove PATH\n");
-	ft_unset(&env,"PATH");
-	aux = env;
-	while (aux)
-	{
-		printf("%s === %s\n", aux->variable, aux->value);
-		aux = aux->next;
-	}
-	printf("\n------------------------------------------------\n");
-	printf("\nRemove PATH_nova\n");
-	ft_unset(&env,"PATH_nova");
-	aux = env;
-	while (aux)
-	{
-		printf("%s === %s\n", aux->variable, aux->value);
-		aux = aux->next;
-	}
-	printf("\n------------------------------------------------\n");
-	ft_free_list(env);
+	// printf("\n------------------------------------------------\n");
+	// printf("\nRemove PATH\n");
+	// ft_unset(&env,"PATH");
+	// aux = env;
+	// while (aux)
+	// {
+	// 	printf("%s === %s\n", aux->variable, aux->value);
+	// 	aux = aux->next;
+	// }
+	// printf("\n------------------------------------------------\n");
+	// printf("\nRemove PATH_nova\n");
+	// ft_unset(&env,"PATH_nova");
+	// aux = env;
+	// while (aux)
+	// {
+	// 	printf("%s === %s\n", aux->variable, aux->value);
+	// 	aux = aux->next;
+	// }
+	// printf("\n------------------------------------------------\n");
+	// ft_free_list(env);
 }
 
 //  gcc ../../src/free/ft_free_list.c ../../src/creat_list/linked_list.c ../../src/handle/handle_envp.c ../../libft/ft_strdup.c ../../libft/ft_strlen.c ../../libft/ft_strncmp.c ../../libft/ft_split.c ../../libft/ft_substr.c main.c ../../src/built-ins/ft_unset.c ../../src/built-ins/ft_export.c
